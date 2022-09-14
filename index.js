@@ -4,6 +4,7 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
+    console.log("Receive new request... on " + new Date());
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hello COMP229\n');
@@ -12,3 +13,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
+
