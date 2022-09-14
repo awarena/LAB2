@@ -1,16 +1,9 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-    console.log("Receive new request... on " + new Date());
-    res.statusCode = 200;
+const connect = require('connect');
+const app = connect();
+function helloWorld(req, res, next) {
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello COMP229\n');
-});
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
-
+    res.end('Hello World');
+};
+app.use(helloWorld);
+app.listen(3000);
+console.log('Server running at http://localhost:3000/');
